@@ -22,6 +22,17 @@ public class PolicyJSONValidator {
 ```
 Schema to validate JSON input is in `src/main/resources` directory.
 
+## Example usage
+```java
+class Main {
+    public static void main(String[] args) {
+        String path = "pathToInputFile.json";
+        boolean isValid = PolicyJSONValidator.validate(path);
+        System.out.println(isValid);
+    }
+}
+```
+
 ## Tests
 4 unit tests have been written using junit framework.
 
