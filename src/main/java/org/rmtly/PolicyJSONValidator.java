@@ -26,7 +26,7 @@ public class PolicyJSONValidator {
 
         checkJSONFile(jsonContent);
 
-        Pattern pattern = Pattern.compile("\"*\"");
+        Pattern pattern = Pattern.compile("\"\\*\"");
         Matcher matcher = pattern.matcher(jsonContent);
         return !matcher.find();
     }
@@ -44,14 +44,11 @@ public class PolicyJSONValidator {
             schema.validate(jsonObject);
 
         } catch (JSONException e) {
-            System.err.println("JSON file is either not found, damaged, or contains invalid syntax");
-            throw new RuntimeException(e);
+            throw new RuntimeException("JSON file is either not found, damaged, or contains invalid syntax");
         } catch (FileNotFoundException e) {
-            System.err.println("Schema config file (src/main/resources/schema.json) not found");
-            throw new RuntimeException(e);
+            throw new RuntimeException("Schema config file (src/main/resources/schema.json) not found");
         } catch (org.everit.json.schema.ValidationException e) {
-            System.err.println("Incorrect JSON schema");
-            throw new RuntimeException(e);
+            throw new RuntimeException("Incorrect JSON schema");
         }
     }
 }

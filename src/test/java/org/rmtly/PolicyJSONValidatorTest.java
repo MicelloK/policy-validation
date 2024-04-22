@@ -8,25 +8,25 @@ class PolicyJSONValidatorTest {
 
     @Test
     void validateIfAsteriskTest() {
-        String path = "asterisk.json";
+        String path = "src/test/resources/asterisk.json";
         assertFalse(PolicyJSONValidator.validate(path));
     }
 
     @Test
     void validateIfNotAsteriskTest() {
-        String path = "";
+        String path = "src/test/resources/notAsterisk.json";
         assertTrue(PolicyJSONValidator.validate(path));
     }
 
     @Test
     void damagedJSONFileTest() {
-        String path = "";
+        String path = "src/test/resources/damaged.json";
         assertThrows(RuntimeException.class, () -> PolicyJSONValidator.validate(path));
     }
 
     @Test
     void invalidJSONSchemaTest() {
-        String path = "";
+        String path = "src/test/resources/invalidSchema.json";
         assertThrows(RuntimeException.class, () -> PolicyJSONValidator.validate(path));
     }
 }
