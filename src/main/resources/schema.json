@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Role Policy",
+  "description": "AWS::IAM::Role Policy",
+  "type": "object",
+  "properties": {
+    "PolicyDocument": {
+      "description": "The entire contents of the policy that defines permissions.",
+      "type": "object"
+    },
+    "PolicyName": {
+      "description": "The friendly name (not ARN) identifying the policy.",
+      "type": "string"
+    }
+  },
+  "required": ["PolicyDocument", "PolicyName"]
+}
